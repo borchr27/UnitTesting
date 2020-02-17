@@ -6,10 +6,10 @@ class Interest:
 
     def simple_interest(self, init_amt, rate, time): 
         # Calculates total amount using simple interest formula and parameters
-        if (init_amt not in [float, int]) or (rate not in [float, int]) or (time not in [float, int]):
+        if (type(init_amt) not in [float, int]) or (type(rate) not in [float, int]) or (type(time) not in [float, int]):
             raise TypeError("Values must be type integer or float")
-        if init_amt < 0 or rate < 0 or rate > 100 or time < 0:
-            raise ValueError(" Please check and make sure the entered values are reasonable")
+        if init_amt < 0 or rate < 0 or rate > 1 or time < 0:
+            raise ValueError("Please check and make sure the entered values are reasonable (rate needs to be a decimal)")
         return init_amt * (rate * time + 1)
 
     def compound_interest(self, init_amt, rate, time, n): 
